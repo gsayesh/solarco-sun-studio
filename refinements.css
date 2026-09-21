@@ -1,0 +1,175 @@
+/* V4: five bounded corrections from the rated-entry / art-direction review. */
+:root { --nav-glass: rgba(255,255,255,.58); --nav-blur: 28px; }
+
+/* 01 — Genuine translucent navigation. A separate positive-z glass plane
+   blurs the page beneath, while its siblings (links/menu) remain sharp. */
+.site-header {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-radius: 18px;
+  color: #263747;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--nav-glass);
+  background-image: linear-gradient(115deg,#ffffff18,transparent 56%,#ffffff08);
+  border: 1px solid #ffffffbd;
+  box-shadow: inset 0 1px 0 #ffffffc9, inset 0 -1px 0 #ffffff40, 0 8px 26px -18px #2d3f513b;
+  -webkit-backdrop-filter: blur(var(--nav-blur)) saturate(150%);
+  backdrop-filter: blur(var(--nav-blur)) saturate(150%);
+  pointer-events: none;
+}
+.header-inner { position: relative; z-index: 1; }
+.header-inner nav a { font-weight: 500; }
+.header-cta .arrow-disc { background: #ffffff4d; border-color: #ffffffb3; }
+
+/* 02 — Keep the expressive headline; make the offer and next step explicit. */
+.hero-copy > p:first-child { font-size: 19px; }
+.hero-copy .body-copy { max-width: 292px; }
+.hero-copy .button { min-width: 254px; }
+.solution-list button > span:nth-child(2) { font-weight: 500; }
+.solution-list small { font-size: 13px; line-height: 1.45; font-weight: 400; }
+
+/* 03 — The architectural experiment must explain itself on every screen. */
+.studio-title .eyebrow { font-size: 10px; letter-spacing: .09em; }
+.studio-title p { font-size: 16px; }
+.control-top { font-size: 13px; }
+.studio-insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-left: 1px solid #2d3f5121;
+  padding-left: 22px;
+}
+.studio-insight::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex: none;
+}
+.studio-explanation { display: block; border: 0; padding: 0; font-size: 13px; line-height: 1.55; }
+
+/* 04 — About becomes a compact editorial introduction and useful questions. */
+.about { padding-block: 88px; background: #f0f2ed; }
+.about::before { display: none; }
+.about-editorial { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+.about h2 { font-size: 65px; line-height: 1.04; margin-top: 30px; letter-spacing: -.055em; }
+.about-opening { max-width: 410px; margin-top: 27px; font-size: 15px; line-height: 1.8; color: #52616d; }
+.about-intro .underlined-link { margin-top: 23px; min-width: 232px; }
+.about-questions { border-left: 1px solid #c9d0c9; padding-left: 50px; padding-top: 5px; }
+.about-questions > .eyebrow { color: #52616d; font-size: 10px; }
+.home-questions { list-style: none; padding: 0; margin: 23px 0 0; }
+.home-questions li { display: grid; grid-template-columns: 26px 1fr; gap: 18px; padding: 25px 0; border-bottom: 1px solid #ccd2cc; }
+.home-questions li:first-child { padding-top: 16px; }
+.home-questions li:last-child { border-bottom: 0; padding-bottom: 0; }
+.home-questions li > span { color: var(--rust); font-size: 11px; padding-top: 5px; }
+.home-questions h3 { font-size: 22px; letter-spacing: -.035em; line-height: 1.3; }
+.home-questions p { color: #52616d; font-size: 14px; line-height: 1.65; margin-top: 10px; max-width: 350px; }
+
+/* 05 — Reserve a truthful review destination without inflating missing proof. */
+.stories { padding-block: 75px; background: none; }
+.stories-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 48px; }
+.stories h2 { font-size: 43px; line-height: 1.1; margin-top: 20px; letter-spacing: -.045em; }
+.review-slot { border-left: 1px solid var(--line); padding-left: 50px; }
+.review-status { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: .08em; color: #606c75; }
+.review-slot > p { margin-top: 10px; font-size: 14px; line-height: 1.7; max-width: 390px; color: #52616d; }
+.review-slot .underlined-link { margin-top: 12px; font-size: 12px; }
+@media(max-width:1200px) {
+  .studio-insight { grid-column: 1/-1; padding: 14px 0 0; border-left: 0; border-top: 1px solid #2d3f5121; }
+  .sun-studio { row-gap: 16px; }
+  .studio-explanation { display: block; font-size: 13px; }
+  .about-editorial { gap: 70px; }
+  .about h2 { font-size: 56px; }
+  .about-questions { padding-left: 35px; }
+  .home-questions h3 { font-size: 21px; }
+}
+@media(max-width:960px) {
+  .hero-copy > p:first-child { font-size: 17px; }
+  .hero-copy .button { min-width: 230px; font-size: 13px; gap: 18px; }
+  .about-editorial { gap: 42px; }
+  .about h2 { font-size: 48px; }
+  .about-questions { padding-left: 28px; }
+  .home-questions li { gap: 12px; }
+  .home-questions h3 { font-size: 20px; }
+  .home-questions p { font-size: 13px; }
+  .stories-compact { gap: 40px; }
+  .stories h2 { font-size: 36px; }
+  .review-slot { padding-left: 28px; }
+}
+@media(max-width:700px) {
+  .site-header { border-radius: 16px; }
+  .site-header::before { z-index: 0; background: var(--nav-glass); -webkit-backdrop-filter: blur(28px) saturate(150%); backdrop-filter: blur(28px) saturate(150%); }
+  .header-inner nav { left: -12px; right: -12px; background: #fbfaf7d1; -webkit-backdrop-filter: blur(28px) saturate(140%); backdrop-filter: blur(28px) saturate(140%); }
+  .header-inner nav a { font-weight: 500; }
+  .hero-copy > p:first-child { font-size: 16px; line-height: 1.5; max-width: 340px; }
+  .hero-copy .button { min-width: 242px; font-size: 13px; }
+  .solution-list button > span:nth-child(2) { font-size: 24px; }
+  .solution-list small { font-size: 12px; }
+  .studio-title .eyebrow { font-size: 9px; }
+  .studio-title p { font-size: 14px; max-width: none; }
+  .control-top { font-size: 12px; }
+  .control-top label { max-width: none; }
+  .control-top output { font-size: 11px; }
+  .battery-toggle > span { font-size: 13px; }
+  .battery-toggle small { font-size: 11px; }
+  .studio-insight { padding-top: 16px; gap: 10px; }
+  .studio-explanation { font-size: 12px; line-height: 1.65; }
+  .about { padding-block: 66px; }
+  .about-editorial { grid-template-columns: 1fr; gap: 40px; }
+  .about h2 { font-size: clamp(40px,11.8vw,48px); margin-top: 24px; }
+  .about-opening { font-size: 14px; line-height: 1.75; margin-top: 23px; }
+  .about-intro .underlined-link { margin-top: 15px; font-size: 12px; }
+  .about-questions { border-left: 0; border-top: 1px solid #c9d0c9; padding: 26px 0 0; }
+  .home-questions { margin-top: 13px; }
+  .home-questions li { padding-block: 21px; grid-template-columns: 22px 1fr; gap: 14px; }
+  .home-questions h3 { font-size: 20px; }
+  .home-questions p { font-size: 13px; margin-top: 7px; }
+  .stories { padding-block: 44px; }
+  .stories-compact { grid-template-columns: 1fr; gap: 22px; padding-bottom: 38px; }
+  .stories h2 { font-size: 32px; margin-top: 15px; }
+  .review-slot { border-left: 0; padding-left: 0; }
+  .review-status { font-size: 9px; }
+  .review-slot > p { margin-top: 8px; font-size: 13px; max-width: 330px; }
+  .review-slot .underlined-link { margin-top: 8px; font-size: 12px; }
+}
+/* The open mobile menu sits beside the sticky header in the DOM so its
+   backdrop is not restricted to the header's 64px painting bounds. */
+.mobile-navigation {
+  display: none;
+  position: fixed;
+  z-index: 12;
+  top: 80px;
+  left: 12px;
+  right: 12px;
+  margin: 0;
+  padding: 12px 22px;
+  border: 1px solid #ffffffc9;
+  border-radius: 20px;
+  background: rgba(251,250,247,.7);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  backdrop-filter: blur(28px) saturate(140%);
+  box-shadow: 0 18px 40px -20px #2d3f5140,inset 0 1px 0 #fff9;
+}
+.mobile-navigation.is-open { display: flex; flex-direction: column; }
+.mobile-navigation a { font-size: 17px; font-weight: 500; line-height: 52px; border-bottom: 1px solid #2d3f5120; color: #263747; }
+.mobile-navigation a:last-child { border-bottom: 0; }
+.mobile-navigation a span { font-size: 10px; margin-right: 20px; color: #52616d; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header::before, .header-inner nav.is-open, .mobile-navigation.is-open { background: #fbfaf7; }
+}
+@media(prefers-reduced-transparency:reduce), (prefers-contrast:more) {
+  .site-header::before, .header-inner nav.is-open, .mobile-navigation.is-open { background: #fbfaf7; background-image: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-color: #697681; }
+}
+@media(forced-colors:active) {
+  .site-header::before { background: Canvas; border-color: CanvasText; }
+}

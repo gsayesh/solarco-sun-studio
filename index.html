@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <meta
+      name="description"
+      content="Meet your sun-powered life. Explore an interactive solar home and start a conversation with The Solar Co."
+    />
+    <title>The Solar Co — Meet your sun-powered life</title>
+    <link rel="icon" href="assets/icons/sun.svg" />
+    <link
+      rel="preload"
+      href="assets/fonts/InstrumentSans-Variable.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/InstrumentSerif-Italic.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="glass.css" />
+    <link rel="stylesheet" href="refinements.css" />
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+    <script type="module" src="solar-scene.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#home" aria-label="The Solar Co home"
+          ><img
+            src="assets/images/solar-co-logo.png"
+            alt="The Solar Co"
+            width="452"
+            height="202"
+        /></a>
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#possibilities"><span>01</span> Solar &amp; storage</a
+          ><a href="#about"><span>02</span> The Solar Co</a
+          ><a href="#stories"><span>03</span> Customer stories</a>
+        </nav>
+        <a class="header-cta" href="#quote"
+          >Get a quote
+          <span class="arrow-disc"
+            ><svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#arrow-up" /></svg></span></a
+        ><button
+          class="menu-toggle"
+          aria-controls="navigation"
+          aria-expanded="false"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="shell hero-inner">
+          <p class="eyebrow hero-eyebrow">
+            <span class="tiny-sun" aria-hidden="true">✳</span> GOOD ENERGY. FOR
+            REAL LIFE.
+          </p>
+          <h1 id="hero-title">Meet your<br /><em>sun-powered life.</em></h1>
+          <div class="hero-copy">
+            <p>
+              Home solar and battery storage,<br />built around the way you live.
+            </p>
+            <p class="body-copy">
+              Start with your roof and your routine. Explore the options,
+              then take the next step with a solar quote.
+            </p>
+            <a class="button primary" href="#quote"
+              >Request a solar quote
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" /></svg></a
+            ><a class="quiet-link" href="#possibilities"
+              >Discover the possibilities <span>↓</span></a
+            >
+          </div>
+          <div class="scene-area">
+            <div class="sun-orbit" aria-hidden="true"><span></span></div>
+            <div class="scene-topline">
+              <span><i></i> THE SOLAR HOUSE</span><span>Made to explore.</span>
+            </div>
+            <div
+              id="solar-stage"
+              role="group"
+              aria-label="Interactive architectural concept of a home with rooftop solar and battery storage. Use the labelled controls below to explore it."
+            >
+              <div class="scene-fallback">
+                <picture
+                  ><source
+                    media="(max-width:700px)"
+                    srcset="assets/images/solar-house-mobile.webp" />
+                  <img
+                    src="assets/images/solar-house-desktop.webp"
+                    alt="Original architectural illustration of a solar home"
+                    width="924"
+                    height="448"
+                    fetchpriority="high"
+                /></picture>
+              </div>
+            </div>
+            <div class="scene-tools">
+              <span class="drag-hint"
+                ><svg aria-hidden="true">
+                  <use href="assets/icons/ui.svg#orbit" />
+                </svg>
+                Drag to look around</span
+              >
+              <div>
+                <button
+                  id="scene-reset"
+                  type="button"
+                  aria-label="Reset the home view"
+                  title="Reset view"
+                >
+                  <svg aria-hidden="true">
+                    <use href="assets/icons/ui.svg#reset" />
+                  </svg></button
+                ><button id="scene-layers" type="button" aria-pressed="false">
+                  See the layers
+                  <svg aria-hidden="true">
+                    <use href="assets/icons/ui.svg#layers" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shell sun-studio">
+          <div class="studio-title">
+            <span class="eyebrow">HOW SOLAR WORKS</span>
+            <p>See what changes.</p>
+          </div>
+          <div class="time-control">
+            <div class="control-top">
+              <label for="sun-hour">Time of day</label
+              ><output for="sun-hour" id="time-display">12:00 pm</output>
+            </div>
+            <input
+              id="sun-hour"
+              type="range"
+              min="6"
+              max="20"
+              value="12"
+              step="0.5"
+              aria-valuetext="12 noon"
+            />
+            <div class="range-labels">
+              <span>06:00 AM</span><span>08:00 PM</span>
+            </div>
+          </div>
+          <button
+            id="battery-toggle"
+            class="battery-toggle"
+            aria-pressed="true"
+            type="button"
+          >
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#battery" /></svg
+            ><span
+              ><span id="battery-label">With battery storage</span
+              ><small id="battery-caption"
+                >Save some sunshine for later</small
+              ></span
+            ><i class="switch" aria-hidden="true"></i>
+          </button>
+          <div class="studio-insight"><p class="studio-explanation" id="scene-status" aria-live="polite">
+            Daylight powers your home.<br />Surplus can be stored or exported.
+          </p></div>
+        </div>
+        <p class="shell concept-note">
+          An illustrative home, not a project or a performance forecast. Your
+          system would be designed for your property.
+        </p>
+      </section>
+      <section class="intro-strip" aria-label="Our approach">
+        <div class="shell">
+          <span>Sunlight is the beginning.</span
+          ><svg aria-hidden="true"><use href="assets/icons/ui.svg#sun" /></svg
+          ><strong>What you do with it is yours.</strong
+          ><a href="#possibilities" aria-label="Explore solar possibilities"
+            >↓</a
+          >
+        </div>
+      </section>
+      <section
+        id="possibilities"
+        class="section possibilities"
+        aria-labelledby="possibilities-title"
+      >
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">
+              <span class="index">01 /</span> YOUR POSSIBILITIES
+            </p>
+            <div>
+              <h2 id="possibilities-title">
+                One sun.<br /><em>So many possibilities.</em>
+              </h2>
+              <p>Start with your home. Choose what comes next.</p>
+            </div>
+          </div>
+          <div class="solutions-layout">
+            <div
+              class="solution-list"
+              role="tablist"
+              aria-label="Explore our services"
+            >
+              <button
+                role="tab"
+                id="tab-solar"
+                aria-selected="true"
+                aria-controls="solution-solar"
+                tabindex="0"
+              >
+                <span class="solution-index">01</span
+                ><span>Home solar<small>Turn daylight into electricity</small></span
+                ><b aria-hidden="true">↗</b></button
+              ><button
+                role="tab"
+                id="tab-battery"
+                aria-selected="false"
+                aria-controls="solution-battery"
+                tabindex="-1"
+              >
+                <span class="solution-index">02</span
+                ><span
+                  >Battery storage<small>Store surplus energy for later</small></span
+                ><b aria-hidden="true">↗</b></button
+              ><button
+                role="tab"
+                id="tab-design"
+                aria-selected="false"
+                aria-controls="solution-design"
+                tabindex="-1"
+              >
+                <span class="solution-index">03</span
+                ><span>System planning<small>Start with your roof and routine</small></span
+                ><b aria-hidden="true">↗</b>
+              </button>
+            </div>
+            <div class="solution-display">
+              <article
+                role="tabpanel"
+                id="solution-solar"
+                aria-labelledby="tab-solar"
+              >
+                <div
+                  class="product-art panel-art"
+                  aria-label="Original illustration of a solar panel"
+                >
+                  <div class="product-orbit"></div>
+                  <div class="solar-panel"><div class="panel-cells"></div></div>
+                  <span class="art-note">SUNLIGHT → ELECTRICITY</span
+                  ><span class="art-index">01</span>
+                </div>
+                <div class="solution-copy">
+                  <div>
+                    <h3>Your own source of possibility.</h3>
+                    <p>
+                      Solar panels turn daylight into electricity. The right
+                      starting point is your roof, the energy you use and when
+                      you use it.
+                    </p>
+                  </div>
+                  <a
+                    class="circle-link"
+                    href="#quote"
+                    data-interest="Home solar"
+                    aria-label="Enquire about home solar"
+                    ><svg aria-hidden="true">
+                      <use href="assets/icons/ui.svg#arrow-up" /></svg
+                  ></a>
+                </div>
+              </article>
+              <article
+                role="tabpanel"
+                id="solution-battery"
+                aria-labelledby="tab-battery"
+                hidden
+              >
+                <div
+                  class="product-art battery-art"
+                  aria-label="Original illustration of a home battery"
+                >
+                  <div class="product-orbit"></div>
+                  <div class="battery-product">
+                    <span>☼</span><i></i>
+                    <div></div>
+                  </div>
+                  <span class="art-note"
+                    >DAYTIME ENERGY. EVENING POSSIBILITIES.</span
+                  ><span class="art-index">02</span>
+                </div>
+                <div class="solution-copy">
+                  <div>
+                    <h3>A little sunshine, saved.</h3>
+                    <p>
+                      A battery stores surplus energy for later use. Explore
+                      whether storage suits your routine or an existing solar
+                      system.
+                    </p>
+                  </div>
+                  <a
+                    class="circle-link"
+                    href="#quote"
+                    data-interest="Solar + battery"
+                    aria-label="Enquire about battery storage"
+                    ><svg aria-hidden="true">
+                      <use href="assets/icons/ui.svg#arrow-up" /></svg
+                  ></a>
+                </div>
+              </article>
+              <article
+                role="tabpanel"
+                id="solution-design"
+                aria-labelledby="tab-design"
+                hidden
+              >
+                <div
+                  class="product-art planning-art"
+                  aria-label="Conceptual roof planning illustration"
+                >
+                  <div class="plan-grid"></div>
+                  <div class="plan-house"><div class="plan-panels"></div></div>
+                  <span class="dimension top">YOUR ROOF</span
+                  ><span class="dimension bottom">YOUR ROUTINE</span
+                  ><span class="art-note">DESIGNED AROUND YOUR LIFE</span
+                  ><span class="art-index">03</span>
+                </div>
+                <div class="solution-copy">
+                  <div>
+                    <h3>Room for your next chapter.</h3>
+                    <p>
+                      A new build, a future battery, a remote property. Start
+                      with your plans and explore grid-connected or off-grid
+                      possibilities.
+                    </p>
+                  </div>
+                  <a
+                    class="circle-link"
+                    href="#quote"
+                    data-interest="Help me decide"
+                    aria-label="Enquire about system planning"
+                    ><svg aria-hidden="true">
+                      <use href="assets/icons/ui.svg#arrow-up" /></svg
+                  ></a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <div class="shell about-editorial">
+          <div class="about-intro">
+            <p class="eyebrow"><span class="index">02 /</span> ABOUT THE SOLAR CO</p>
+            <h2 id="about-title">Good energy<br />starts at home.</h2>
+            <p class="about-opening">Solar is about more than what goes on your roof. It’s about the home beneath it. At The Solar Co, that’s where the conversation starts.</p>
+            <a class="underlined-link" href="#quote">Talk about your home <span>↗</span></a>
+          </div>
+          <div class="about-questions">
+            <p class="eyebrow">THE QUESTIONS THAT MATTER</p>
+            <ol class="home-questions">
+              <li><span aria-hidden="true">01</span><div><h3>What is your roof like?</h3><p>Direction, shade and condition help shape a solar design.</p></div></li>
+              <li><span aria-hidden="true">02</span><div><h3>When do you use energy?</h3><p>Your daily routine helps explain where solar and storage could fit.</p></div></li>
+              <li><span aria-hidden="true">03</span><div><h3>What’s next for your home?</h3><p>Future plans belong in the conversation alongside today’s needs.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="stories section" id="stories" aria-labelledby="stories-title">
+        <div class="shell stories-compact">
+          <div class="stories-heading">
+            <p class="eyebrow"><span class="index">03 /</span> CUSTOMER TESTIMONIALS</p>
+            <h2 id="stories-title">Customer voices.</h2>
+          </div>
+          <div class="review-slot" role="note" aria-label="Customer reviews awaiting approval">
+            <span class="review-status">AWAITING APPROVED REVIEWS</span>
+            <p>Genuine customer feedback will appear here once supplied and approved.</p>
+            <a class="underlined-link" href="#quote">Start your solar conversation <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+      <section class="faq section" aria-labelledby="faq-title">
+        <div class="shell faq-layout">
+          <div>
+            <p class="eyebrow">A LITTLE CLARITY</p>
+            <h2 id="faq-title">Curiosity<br /><em>looks good on you.</em></h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>
+                <span>01</span>Is my home right for solar?<i aria-hidden="true"
+                  >+</i
+                >
+              </summary>
+              <p>
+                Your roof’s orientation, usable space, condition and shading all
+                affect its potential. Your energy use matters too. A property
+                assessment is the starting point for a suitable design.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span>02</span>Should I add a battery?<i aria-hidden="true"
+                  >+</i
+                >
+              </summary>
+              <p>
+                A battery stores surplus solar electricity for later. Its value
+                depends on your usage, goals and system costs. Not every home
+                needs one; it’s a useful option to discuss.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span>03</span>What about night-time or blackouts?<i
+                  aria-hidden="true"
+                  >+</i
+                >
+              </summary>
+              <p>
+                Panels do not generate at night. You can use stored battery
+                energy or electricity from the grid. Blackout backup needs
+                compatible equipment and a suitable installation; a battery
+                alone does not guarantee it.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span>04</span>What could I save?<i aria-hidden="true">+</i>
+              </summary>
+              <p>
+                That depends on your property, system, energy use and
+                electricity tariff. A useful quote should explain its
+                assumptions and estimated output. A recent power bill helps
+                start that conversation.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="quote section" id="quote" aria-labelledby="quote-title">
+        <div class="shell quote-layout">
+          <div>
+            <p class="eyebrow">THE NEXT CHAPTER IS YOURS</p>
+            <h2 id="quote-title">
+              Let’s bring<br />your possibilities<br /><em>to light.</em>
+            </h2>
+            <p>
+              Tell us a little about your home.<br />You don’t need to have it
+              all figured out.
+            </p>
+            <div class="quote-emblem" aria-hidden="true">✳</div>
+          </div>
+          <div class="enquiry-panel">
+            <div class="form-top">
+              <span>YOUR SOLAR CONVERSATION</span><span>01 →</span>
+            </div>
+            <form id="enquiry-form" novalidate>
+              <fieldset>
+                <legend>What are you thinking about?</legend>
+                <div class="interest-options">
+                  <label
+                    ><input
+                      type="radio"
+                      name="interest"
+                      value="Home solar"
+                    /><span>Solar panels</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="interest"
+                      value="Solar + battery"
+                    /><span>Solar + battery</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="interest"
+                      value="Help me decide"
+                      checked
+                    /><span>Help me decide</span></label
+                  >
+                </div>
+              </fieldset>
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Your name <span>*</span></label
+                  ><input
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="First and last name"
+                    required
+                    maxlength="100"
+                    aria-describedby="name-error"
+                  />
+                  <p id="name-error" class="field-error"></p>
+                </div>
+                <div class="field">
+                  <label for="location">Suburb or postcode <span>*</span></label
+                  ><input
+                    id="location"
+                    name="location"
+                    autocomplete="postal-code"
+                    placeholder="Where’s home?"
+                    required
+                    maxlength="120"
+                    aria-describedby="location-error"
+                  />
+                  <p id="location-error" class="field-error"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">Email address <span>*</span></label
+                ><input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  placeholder="you@example.com"
+                  required
+                  maxlength="254"
+                  aria-describedby="email-error"
+                />
+                <p id="email-error" class="field-error"></p>
+              </div>
+              <div class="field">
+                <label for="phone"
+                  >Phone number <span class="optional">Optional</span></label
+                ><input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  placeholder="If you’d prefer a call"
+                  maxlength="40"
+                  aria-describedby="phone-error"
+                />
+                <p id="phone-error" class="field-error"></p>
+              </div>
+              <label class="consent-label"
+                ><input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  required
+                  aria-describedby="consent-error"
+                /><span
+                  >I’m happy to be contacted about my enquiry.
+                  <a href="privacy.html" target="_blank" rel="noopener"
+                    >Privacy information (new tab)</a
+                  ></span
+                ></label
+              >
+              <p id="consent-error" class="field-error"></p>
+              <p id="submit-error" role="alert" hidden></p>
+              <button
+                class="button primary submit-button"
+                type="submit"
+                disabled
+              >
+                Start my solar conversation
+                <svg aria-hidden="true">
+                  <use href="assets/icons/ui.svg#arrow-up" />
+                </svg>
+              </button>
+              <p class="demo-note">
+                Design preview. Your details are not sent.
+              </p>
+              <noscript
+                ><p class="demo-note">
+                  Enable JavaScript to explore this demonstration form.
+                </p></noscript
+              >
+            </form>
+            <div id="form-success" hidden tabindex="-1" role="status">
+              <span class="success-sun" aria-hidden="true">☼</span>
+              <p class="eyebrow">PREVIEW COMPLETE · NOTHING SENT</p>
+              <h3>That’s how your<br />next chapter begins.</h3>
+              <p>
+                This demonstration has not sent or saved your details. The live
+                enquiry service needs to be connected before launch.
+              </p>
+              <button type="button" class="underlined-link" id="form-reset">
+                Explore another possibility <span>↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="shell">
+        <div class="footer-wordmark" aria-hidden="true">
+          Hello, <em>sunshine.</em><span>✳</span>
+        </div>
+        <div class="footer-main">
+          <a class="brand" href="#home" aria-label="The Solar Co home"
+            ><img
+              src="assets/images/solar-co-logo.png"
+              alt="The Solar Co"
+              width="452"
+              height="202"
+              loading="lazy"
+          /></a>
+          <p>Good energy.<br />For the place you call home.</p>
+          <div>
+            <a href="#possibilities">Solar &amp; storage</a
+            ><a href="#about">About The Solar Co</a
+            ><a href="#stories">Customer stories</a>
+          </div>
+          <div>
+            <a href="#quote">Start a conversation ↗</a
+            ><a href="privacy.html">Privacy & this preview</a
+            ><a href="#home">Back to the sunshine ↑</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 The Solar Co · Website concept</span
+          ><span
+            >Original architectural illustration. Company details and reviews
+            await approval.</span
+          >
+        </div>
+      </div>
+    </footer>
+    <a class="mobile-quote" href="#quote">Request a solar quote <span>↗</span></a>
+  </body>
+</html>

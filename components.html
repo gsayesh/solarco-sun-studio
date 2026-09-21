@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <title>The Solar Co — Frosted glass reference</title>
+    <meta
+      name="description"
+      content="Frosted glass materials, typography, colour and component-state reference for The Solar Co website concept."
+    />
+    <link rel="icon" href="assets/icons/sun.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="glass.css" />
+    <link rel="stylesheet" href="refinements.css" />
+    <style>
+
+      .reference{font-size:14px;background:radial-gradient(ellipse at 2% 5%,#f7874c15 0,transparent 34%),radial-gradient(ellipse at 100% 24%,#a6b7c72b 0,transparent 30%),var(--paper);color:var(--ink)}
+      .reference-header{padding:25px 0;background:var(--nav-glass,rgba(255,255,255,.58));border-bottom:1px solid rgba(255,255,255,.74);box-shadow:0 1px 0 #2d3f5108;-webkit-backdrop-filter:blur(var(--nav-blur,28px)) saturate(150%);backdrop-filter:blur(var(--nav-blur,28px)) saturate(150%)}
+      .reference-header .shell{display:flex;justify-content:space-between;align-items:center;gap:24px}.reference-header .brand{width:140px}.reference-header .back-link{display:flex;gap:14px;align-items:center;min-height:44px;font-size:12px}.back-link svg{width:18px;height:18px}.back-link:hover,.reference-nav a:hover{color:var(--rust)}
+      .reference-title{padding:72px 0 56px;max-width:900px}.reference-title .eyebrow{color:var(--rust);font-size:10px}.reference-title h1{font-size:clamp(48px,6vw,86px);letter-spacing:-.06em;margin-top:24px;line-height:1.04;pointer-events:auto}.reference-title h1 em{font-size:1.1em;white-space:normal}.reference-title>p:last-child{margin-top:25px;max-width:690px;color:var(--muted);font-size:15px;line-height:1.75}
+      .reference-nav{display:flex;flex-wrap:wrap;gap:8px 25px;border:1px solid var(--glass-edge,rgba(255,255,255,.9));padding:14px 24px;border-radius:24px;background:var(--glass-fill,rgba(255,255,255,.54));box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%)}.reference-nav a{min-height:36px;display:flex;align-items:center;font-size:12px}
+      .reference-section{padding:68px 0 70px;border-bottom:1px solid #2d3f5114;scroll-margin-top:24px;position:relative}.reference-heading{display:flex;align-items:baseline;gap:20px;margin-bottom:32px}.reference-heading>span{font-size:11px;color:var(--rust);min-width:26px}.reference-heading h2{font-size:35px;line-height:1.15;letter-spacing:-.045em}.reference-heading>p{margin-left:auto;max-width:380px;font-size:13px;line-height:1.65;color:var(--muted)}.reference code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px;letter-spacing:.01em}.reference-note{font-size:12px;color:var(--muted);margin-top:25px;line-height:1.8;max-width:920px}
+      .swatches{padding:0;margin:0;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 18px}.swatch{height:86px;background:var(--swatch);border:1px solid #ffffffb3;box-shadow:0 7px 18px -14px #2d3f5170,inset 0 1px 0 #ffffffb3;margin-bottom:14px;border-radius:18px}.swatches strong{font-size:13px;font-weight:500;display:block}.swatches code{display:block;margin-top:5px;color:var(--muted)}.swatches li>span{display:block;color:var(--muted);font-size:11px;margin-top:5px}
+      .material-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.material-stage{height:325px;border-radius:26px;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,#fff6e8,#f7d2bb 65%,#dce4e8)}.light-amber{background:linear-gradient(145deg,#fffaf1,#f8dfae 55%,#efe7d5)}.light-slate{background:linear-gradient(135deg,#edf4f7,#c5d6e3 58%,#f8e3cf)}.light-object{position:absolute;z-index:-1}.light-disc{width:180px;height:180px;border-radius:50%;background:#f7874c;left:-28px;top:15px;box-shadow:0 0 55px #f7874c48}.light-amber .light-disc{background:#feb456;left:auto;right:-25px;top:7px;box-shadow:0 0 55px #feb4564a}.light-slate .light-disc{background:#7d97af;top:16px;left:-8px;box-shadow:0 0 55px #7d97af50}.light-rail{height:500px;width:40px;right:75px;top:-80px;background:#2d3f512e;transform:rotate(34deg)}.light-amber .light-rail{background:#d97a445e;right:130px;width:30px}.light-slate .light-rail{background:#feb456b3;right:58px;width:36px}
+      .material-pane{position:absolute;left:24px;right:24px;bottom:24px;padding:28px 24px;min-height:215px;border-radius:var(--glass-radius,24px)}.spec-label{display:block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin-bottom:19px}.material-pane h3{font-size:29px;line-height:1.05;letter-spacing:-.04em;font-weight:500}.material-pane h3 em{font-size:1.22em;letter-spacing:-.035em}.material-pane p{font-size:11px;line-height:1.65;margin-top:14px;max-width:190px}.material-arrow{position:absolute;right:22px;bottom:24px;display:grid;place-items:center;width:34px;height:34px;border:1px solid #ffffffc9;border-radius:50%;background:#ffffff6b;font-size:21px}.material-caption{padding:18px 7px 0}.material-caption strong{font-size:15px;display:block;font-weight:500}.material-caption code{display:block;font-size:10px;line-height:1.8;margin-top:6px;color:var(--muted)}.material-caption>span{display:block;font-size:10px;margin-top:4px;color:var(--muted)}.material-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:28px 32px;margin-top:28px;border-radius:24px}.material-specs .spec-label{margin-bottom:10px}.material-specs strong{display:block;font-size:25px;font-weight:500;letter-spacing:-.03em}.material-specs p{font-size:12px;line-height:1.75;color:var(--muted);margin-top:10px}
+      .type-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:45px;align-items:center}.type-display{font-size:61px;line-height:1.07;letter-spacing:-.055em;font-weight:500}.type-display em{display:block;font-size:1.24em;color:var(--accent);letter-spacing:-.045em;margin-top:2px}.type-spec{margin-top:25px;color:var(--muted);font-size:12px;line-height:1.8}.type-copy{padding:35px;border-radius:24px}.type-copy h3{font-size:25px;letter-spacing:-.035em;margin-bottom:15px}.type-copy>p:not(.type-spec){font-size:14px;color:var(--muted);line-height:1.75;max-width:340px}.type-copy .eyebrow{margin-top:28px;font-size:10px}
+      #actions,#fields,#services,#model-controls{isolation:isolate}#actions::before,#fields::before,#services::before,#model-controls::before{content:'';position:absolute;inset:38px -28px;z-index:-1;border-radius:32px;pointer-events:none;background:radial-gradient(ellipse at 8% 36%,#f7874c40,transparent 53%),radial-gradient(ellipse at 95% 63%,#a3b9c645,transparent 56%)}#fields::before{background:radial-gradient(ellipse at 91% 34%,#feb45638,transparent 47%),radial-gradient(ellipse at 5% 81%,#a2b6c83d,transparent 52%)}#services::before{background:radial-gradient(ellipse at 0% 75%,#f7874c32,transparent 52%),radial-gradient(ellipse at 95% 26%,#bdc9d43d,transparent 45%)}#model-controls::before{background:radial-gradient(ellipse at 82% 37%,#f7874c35,transparent 54%),radial-gradient(ellipse at 8% 80%,#acc3d63d,transparent 52%)}
+      .state-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.state-example{padding:24px 20px;min-width:0;border-radius:24px}.state-label{font-size:12px;color:var(--muted);margin-bottom:24px;display:block}.state-example .button{font-size:12px;min-height:54px;width:100%;padding:14px 16px;gap:12px}.reference .is-preview:disabled{opacity:1;cursor:default}.reference .state-hover{background:linear-gradient(135deg,#ffc890,#f99c62);transform:translateY(-2px)}.reference .state-focus{outline:3px solid var(--rust);outline-offset:5px}.reference .is-disabled:disabled{opacity:.46;cursor:not-allowed}.reference .is-preview:hover{transform:none}.reference .state-hover:hover{background:linear-gradient(135deg,#ffc890,#f99c62);transform:translateY(-2px)}.reference .primary.state-focus:hover,.reference .primary.state-default:hover{background:linear-gradient(135deg,#ffba7e -45%,#f7874c 90%)}
+      .secondary-row{display:flex;flex-wrap:wrap;align-items:center;gap:24px 38px;margin-top:30px;padding:26px;background:rgba(255,255,255,.5);border:1px solid var(--glass-edge);border-radius:24px;-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%);box-shadow:var(--glass-shadow)}.secondary-row .underlined-link{font-size:12px;min-width:210px}.secondary-row .header-cta{font-size:12px}.secondary-row .circle-link{width:46px;height:46px}.secondary-row>span{font-size:11px;color:var(--muted)}
+      .field-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.field-grid>div{padding:26px;border:1px solid var(--glass-edge);border-radius:24px;background:var(--glass-fill-strong);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%)}.reference .field{margin-bottom:0}.reference .field input{font-size:14px;min-height:50px}.reference .field label{font-size:12px}.reference .field [aria-invalid=true]{border-color:#ac3524}.reference .field .valid-example{border-color:#637855}.reference .field-success{font-size:11px;color:#52694a;margin-top:6px;line-height:1.5}.field-caption{font-size:11px;color:var(--muted);margin-top:15px;line-height:1.7}.choice-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px;padding:28px;background:var(--glass-fill);border:1px solid var(--glass-edge);border-radius:24px;box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%)}.choice-row fieldset{margin:0}.choice-row legend{font-size:12px}.choice-row .interest-options label{cursor:default}.choice-row .consent-label{font-size:12px;line-height:1.7;max-width:370px}
+      .services-reference{display:grid;grid-template-columns:1fr 1.15fr;gap:38px;align-items:start}.services-reference .solution-list{padding:12px 24px;border-radius:24px}.services-reference .solution-list button{padding:24px 0}.services-reference .solution-list button>span:nth-child(2){font-size:21px}.services-reference .solution-list small{font-size:11px}.services-reference .product-art{height:270px;border-radius:24px;background:var(--glass-fill);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%)}.services-reference .solar-panel{width:149px;height:196px}.services-reference .panel-cells{background-size:auto}.services-reference .product-orbit{width:208px;height:208px}.services-reference .art-index{font-size:32px}.services-reference .solution-copy h3{font-size:23px}.services-reference .solution-copy p{font-size:13px;line-height:1.75}
+      .controls-reference{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}.model-still{margin:0;padding:24px;border-radius:26px}.model-still img{width:100%;height:300px;object-fit:contain;mix-blend-mode:multiply}.model-still figcaption{text-align:center;color:var(--muted);font-size:11px;line-height:1.7;margin-top:15px}.control-stack{display:grid;gap:25px;padding:30px;border-radius:24px}.control-stack .studio-insight{border-left:0;border-top:1px solid #2d3f5121;padding:18px 0 0}.control-stack .studio-title .eyebrow{display:block;margin-bottom:8px}.control-stack .time-control{padding-bottom:20px;border-bottom:1px solid #2d3f5120}.control-stack .time-control input:disabled{opacity:1;cursor:default}.control-stack .control-top{font-size:12px}.control-stack .range-labels{font-size:10px}.control-stack .battery-toggle{border:0;padding:0;width:100%;min-height:48px}.control-stack .battery-toggle small{font-size:10px}.reference-tool-row{display:flex;flex-wrap:wrap;gap:10px}.reference-tool-row button{display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #ffffffda;padding:10px 14px;min-height:44px;border-radius:16px;background:rgba(255,255,255,.65);box-shadow:inset 0 1px 0 #ffffffed;font-size:11px}.reference-tool-row button svg{width:18px;height:18px}.reference-tool-row button[aria-pressed=true]{border-color:var(--ink);background:rgba(255,255,255,.84)}
+      .icon-list{display:grid;grid-template-columns:repeat(6,1fr);list-style:none;padding:0;margin:0;border:1px solid var(--glass-edge);background:var(--glass-fill);box-shadow:var(--glass-shadow);border-radius:24px;overflow:hidden;-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(135%);backdrop-filter:blur(var(--glass-blur)) saturate(135%)}.icon-list li{min-height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:19px}.icon-list li+li{border-left:1px solid #2d3f5114}.icon-list svg{width:26px;height:26px}.icon-list code{color:var(--muted);font-size:10px}.spacing-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px}.spacing-step{display:flex;align-items:center;gap:18px;margin-bottom:12px;min-height:24px}.spacing-step code{width:24px;color:var(--muted)}.spacing-step>span{display:block;height:12px;background:var(--orange);border-radius:12px;box-shadow:inset 0 1px 0 #ffffff7d}.spacing-step small{font-size:10px;color:var(--muted)}.layout-spec{margin:0;padding:0}.layout-spec>div{display:flex;justify-content:space-between;gap:24px;padding:14px 0;border-bottom:1px solid #2d3f5114;font-size:12px}.layout-spec dt{color:var(--muted)}.layout-spec dd{margin:0;text-align:right}.reference-footer{padding:36px 0 50px;display:flex;justify-content:space-between;gap:30px;font-size:11px;color:var(--muted)}.reference-footer a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+      @media(max-width:1100px){.material-grid{gap:16px}.material-pane{left:16px;right:16px;bottom:18px;padding:24px 20px}.material-pane h3{font-size:25px}.material-pane p{max-width:145px}.material-arrow{right:17px}.state-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.type-grid{gap:30px}.type-display{font-size:49px}.reference-heading>p{max-width:300px}.controls-reference{gap:22px}.control-stack{padding:25px}.reference-section{padding-block:54px}.reference-title{padding-block:55px}.material-caption code{font-size:9px}.services-reference{gap:25px}.field-grid{gap:15px}.field-grid>div{padding:22px}.choice-row{gap:25px}.spacing-layout{gap:30px}}
+      @media(max-width:700px){.reference-header{padding-block:18px}.reference-header .brand{width:115px}.reference-header .back-link{font-size:10px;gap:8px}.reference-title{padding-top:43px;padding-bottom:35px}.reference-title h1{font-size:49px}.reference-title>p:last-child{font-size:14px}.reference-nav{gap:4px 20px;padding:12px 18px;border-radius:18px}.reference-nav a{font-size:11px;min-height:38px}.reference-section{padding-block:42px}.reference-heading{flex-wrap:wrap;gap:10px 13px;margin-bottom:26px}.reference-heading h2{font-size:30px}.reference-heading>p{margin-left:39px;max-width:330px;font-size:12px}.swatches{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}.swatch{height:75px;border-radius:18px}.material-grid{grid-template-columns:1fr;gap:29px}.material-stage{height:300px;border-radius:24px}.material-pane{left:22px;right:22px;bottom:22px;min-height:210px;padding:25px 24px;border-radius:var(--glass-radius,20px)}.material-pane h3{font-size:30px}.material-pane p{max-width:230px}.material-caption{padding-top:15px}.material-caption code{font-size:10px}.material-specs{grid-template-columns:1fr;gap:25px;padding:25px;border-radius:18px}.material-specs>div+div{border-top:1px solid #2d3f5114;padding-top:23px}.type-grid,.field-grid,.choice-row,.services-reference,.controls-reference,.spacing-layout{grid-template-columns:1fr;gap:24px}.type-display{font-size:46px}.type-copy{padding:27px;border-radius:18px}.type-copy h3{font-size:24px}.state-grid{gap:15px}.state-example{padding:20px 15px;border-radius:18px}.state-example .button{font-size:10px;padding:12px;gap:8px;min-height:51px}.state-example .button svg{width:17px;height:17px}.state-label{font-size:10px}.secondary-row{padding:24px;gap:24px;border-radius:18px}.reference .field input{font-size:16px}.reference .field label{font-size:12px}.field-grid>div{padding:24px;border-radius:18px}.choice-row{padding:25px;border-radius:18px}.services-reference .solution-list{border-radius:18px;padding-inline:20px}.services-reference .solution-list button>span:nth-child(2){font-size:21px}.services-reference .product-art{border-radius:18px}.model-still{padding:20px;border-radius:18px}.model-still img{height:230px}.control-stack{padding:25px;border-radius:18px}.icon-list{grid-template-columns:repeat(3,1fr);border-radius:18px}.icon-list li:nth-child(4){border-left:0}.icon-list li:nth-child(-n+3){border-bottom:1px solid #2d3f5114}.spacing-step>span{max-width:210px}.reference-footer{flex-direction:column;gap:12px;font-size:10px}.reference-note{font-size:11px}#actions::before,#fields::before,#services::before,#model-controls::before{inset:50px -12px;border-radius:24px}}
+      @media(max-width:380px){.state-grid{grid-template-columns:1fr}.material-pane p{max-width:185px}.choice-row{padding:22px 17px}.reference-title h1{font-size:44px}.type-display{font-size:41px}}
+      @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.reference .glass-surface,.reference .glass-surface-strong,.reference-nav,.reference-header,.field-grid>div,.choice-row,.secondary-row,.icon-list,.services-reference .product-art{background:rgba(255,255,255,.95)}}
+      @media(prefers-reduced-transparency:reduce),(prefers-contrast:more){.reference .glass-surface,.reference .glass-surface-strong,.reference-nav,.reference-header,.field-grid>div,.choice-row,.secondary-row,.icon-list,.services-reference .product-art{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+      @media(prefers-reduced-motion:reduce){.reference *{transition:none!important;scroll-behavior:auto!important}}
+    </style>
+  </head>
+  <body class="reference">
+    <a class="skip-link" href="#reference-main">Skip to component reference</a>
+    <header class="reference-header">
+      <div class="shell">
+        <a class="brand" href="index.html" aria-label="The Solar Co website"
+          ><img
+            src="assets/images/solar-co-logo.png"
+            alt="The Solar Co"
+            width="452"
+            height="202" /></a
+        ><a class="back-link" href="index.html"
+          >Explore the website
+          <svg aria-hidden="true">
+            <use href="assets/icons/ui.svg#arrow-up" /></svg
+        ></a>
+      </div>
+    </header>
+    <main class="shell" id="reference-main">
+      <div class="reference-title">
+        <p class="eyebrow">THE SOLAR CO · FROSTED GLASS · V4</p>
+        <h1>Light, layered.<br /><em>Clarity, considered.</em></h1>
+        <p>
+          A material system for a brighter solar brand: translucent white surfaces, soft chromatic light and clear slate typography. These component examples use the website’s shared glass styles. Sample controls are static and labelled; they do not submit information.
+        </p>
+      </div>
+      <nav class="reference-nav" aria-label="Component sections">
+        <a href="#colour">01 Colour</a><a href="#glass">02 Glass</a><a href="#type">03 Typography</a
+        ><a href="#actions">04 Actions</a><a href="#fields">05 Fields</a
+        ><a href="#services">06 Services</a
+        ><a href="#model-controls">07 Model controls</a
+        ><a href="#icons">08 Icons</a><a href="#spacing">09 Layout</a>
+      </nav>
+      <section
+        class="reference-section"
+        id="colour"
+        aria-labelledby="colour-title"
+      >
+        <div class="reference-heading">
+          <span>01 /</span>
+          <h2 id="colour-title">The colour of possibility.</h2>
+          <p>
+            Logo-derived slate and orange, lifted by amber light and a cool ambient slate tint. The page stays predominantly light.
+          </p>
+        </div>
+        <ul class="swatches">
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #fbfaf7"
+              aria-hidden="true"
+            ></div>
+            <strong>Paper</strong><code>#FBFAF7</code><span>Main canvas</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #ffffff"
+              aria-hidden="true"
+            ></div>
+            <strong>White</strong><code>#FFFFFF</code
+            ><span>Glass tint source</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #2d3f51"
+              aria-hidden="true"
+            ></div>
+            <strong>Slate</strong><code>#2D3F51</code
+            ><span>Text · structure</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #606c75"
+              aria-hidden="true"
+            ></div>
+            <strong>Muted</strong><code>#606C75</code
+            ><span>Supporting copy</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #f7874c"
+              aria-hidden="true"
+            ></div>
+            <strong>Solar orange</strong><code>#F7874C</code
+            ><span>Primary action</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #feb456"
+              aria-hidden="true"
+            ></div>
+            <strong>Amber</strong><code>#FEB456</code><span>Logo gradient · light</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #d96532"
+              aria-hidden="true"
+            ></div>
+            <strong>Accent</strong><code>#D96532</code
+            ><span>Display accents</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #ac4726"
+              aria-hidden="true"
+            ></div>
+            <strong>Rust</strong><code>#AC4726</code
+            ><span>Small accents · focus</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #f8e5d7"
+              aria-hidden="true"
+            ></div>
+            <strong>Peach</strong><code>#F8E5D7</code><span>Warm illumination</span>
+          </li>
+          <li>
+            <div
+              class="swatch"
+              style="--swatch: #deded5"
+              aria-hidden="true"
+            ></div>
+            <strong>Line</strong><code>#DEDED5</code
+            ><span>Quiet dividers</span>
+          </li>
+        </ul>
+        <p class="reference-note">
+          Slate and orange are sampled from the supplied logo. Supporting shades
+          are UI adaptations. Rust is used for small accent text and focus
+          outlines; bright orange is used as a button surface.
+        </p>
+      </section>
+      <section class="reference-section material-section" id="glass" aria-labelledby="glass-title">
+        <div class="reference-heading"><span>02 /</span><h2 id="glass-title">A surface made of light.</h2><p>Real backdrop blur over coloured geometry. The illumination remains behind the glass; it is not a flat colour painted onto the panel.</p></div>
+        <div class="material-grid">
+          <article class="material-example">
+            <div class="material-stage light-orange"><div class="light-object light-disc" aria-hidden="true"></div><div class="light-object light-rail" aria-hidden="true"></div><div class="glass-surface material-pane"><span class="spec-label">STANDARD FROST</span><h3>A little more<br><em>possibility.</em></h3><p>Slate type. Sunlight beneath.</p><span class="material-arrow" aria-hidden="true">↗</span></div></div>
+            <div class="material-caption"><strong>Sunlit glass</strong><code>White 54% · blur 28px desktop / 22px mobile · saturation 135%</code><span>Shared .glass-surface</span></div>
+          </article>
+          <article class="material-example">
+            <div class="material-stage light-amber"><div class="light-object light-disc" aria-hidden="true"></div><div class="light-object light-rail" aria-hidden="true"></div><div class="glass-surface glass-surface-strong material-pane"><span class="spec-label">STRONGER FROST</span><h3>Clear at<br><em>every step.</em></h3><p>More opacity for focused content.</p><span class="material-arrow" aria-hidden="true">↗</span></div></div>
+            <div class="material-caption"><strong>Golden-hour glass</strong><code>White 72% · blur 28px desktop / 22px mobile · saturation 135%</code><span>Shared .glass-surface + .glass-surface-strong</span></div>
+          </article>
+          <article class="material-example">
+            <div class="material-stage light-slate"><div class="light-object light-disc" aria-hidden="true"></div><div class="light-object light-rail" aria-hidden="true"></div><div class="glass-surface material-pane"><span class="spec-label">COOL AMBIENT LIGHT</span><h3>Room to<br><em>see clearly.</em></h3><p>The same material, a new backdrop.</p><span class="material-arrow" aria-hidden="true">↗</span></div></div>
+            <div class="material-caption"><strong>Slate-lit glass</strong><code>White 54% · white edge 90% · radius 24px desktop / 20px mobile</code><span>Shared .glass-surface</span></div>
+          </article>
+        </div>
+        <div class="material-specs glass-surface glass-surface-strong">
+          <div><span class="spec-label">THE SURFACE</span><strong>54% / 72%</strong><p>Transparent white, with a stronger option behind more demanding content.</p></div>
+          <div><span class="spec-label">THE DIFFUSION</span><strong>28px / 135%</strong><p>Desktop blur is 28px; mobile uses 22px. Both preserve a soft impression of the light behind at 135% saturation.</p></div>
+          <div><span class="spec-label">THE EDGE</span><strong>24px / 90%</strong><p>Primary surfaces use 24px corners on desktop and 20px on mobile. Supporting mobile surfaces use 18px; the enquiry panel uses 22px.</p></div>
+        </div>
+        <p class="reference-note">The coloured discs and rails are deliberately visible outside the glass and diffused beneath it. Keep body copy slate and increase surface opacity before sacrificing readability. The reference page has a solid light fallback when backdrop filtering is unavailable.</p>
+      </section>
+      <section class="reference-section" id="type" aria-labelledby="type-title">
+        <div class="reference-heading">
+          <span>03 /</span>
+          <h2 id="type-title">Clarity, with a human touch.</h2>
+        </div>
+        <div class="type-grid">
+          <div>
+            <span class="spec-label">DISPLAY PAIRING</span>
+            <p class="type-display">
+              Meet your<br /><em>sun-powered life.</em>
+            </p>
+            <p class="type-spec">
+              Instrument Sans · Medium 500<br />Instrument Serif · Italic 400<br />Display
+              headlines use tight spacing and compact line height.
+            </p>
+          </div>
+          <div class="type-copy glass-surface glass-surface-strong">
+            <span class="spec-label">READING &amp; INTERFACE</span>
+            <h3>Your own source of possibility.</h3>
+            <p>
+              Solar panels turn daylight into electricity. The right starting
+              point is your roof, the energy you use and when you use it.
+            </p>
+            <p class="eyebrow">GOOD ENERGY. FOR REAL LIFE.</p>
+            <p class="type-spec">
+              Body · Instrument Sans 400 · 14–16px<br />Labels and actions ·
+              Instrument Sans 500–600<br />Local font files · SIL Open Font
+              License 1.1
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="reference-section"
+        id="actions"
+        aria-labelledby="actions-title"
+      >
+        <div class="reference-heading">
+          <span>04 /</span>
+          <h2 id="actions-title">A clear next step.</h2>
+          <p>
+            Native disabled controls demonstrate each appearance without
+            triggering an action.
+          </p>
+        </div>
+        <div class="state-grid">
+          <div class="state-example glass-surface">
+            <span class="state-label">Default</span
+            ><button
+              class="button primary is-preview state-default"
+              type="button"
+              disabled
+              aria-label="Default button appearance, visual reference"
+            >
+              Request a solar quote
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" />
+              </svg>
+            </button>
+          </div>
+          <div class="state-example glass-surface">
+            <span class="state-label">Hover · warm gradient + slight lift</span
+            ><button
+              class="button primary is-preview state-hover"
+              type="button"
+              disabled
+              aria-label="Hover button appearance, visual reference"
+            >
+              Request a solar quote
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" />
+              </svg>
+            </button>
+          </div>
+          <div class="state-example glass-surface">
+            <span class="state-label">Keyboard focus · 3px outline</span
+            ><button
+              class="button primary is-preview state-focus"
+              type="button"
+              disabled
+              aria-label="Focus button appearance, visual reference"
+            >
+              Request a solar quote
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" />
+              </svg>
+            </button>
+          </div>
+          <div class="state-example glass-surface">
+            <span class="state-label">Disabled · no action</span
+            ><button class="button primary is-disabled" type="button" disabled>
+              Request a solar quote
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="secondary-row">
+          <button class="underlined-link is-preview" type="button" disabled>
+            Talk about your home
+            <span aria-hidden="true">↗</span></button
+          ><button class="header-cta is-preview" type="button" disabled>
+            Get a quote
+            <span class="arrow-disc"
+              ><svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#arrow-up" /></svg
+            ></span></button
+          ><button
+            class="circle-link is-preview"
+            type="button"
+            disabled
+            aria-label="Circular enquiry action, visual reference"
+          >
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#arrow-up" />
+            </svg></button
+          ><span>Underlined · paired · icon-only</span>
+        </div>
+      </section>
+      <section
+        class="reference-section"
+        id="fields"
+        aria-labelledby="fields-title"
+      >
+        <div class="reference-heading">
+          <span>05 /</span>
+          <h2 id="fields-title">Clarity, through every layer.</h2>
+          <p>
+            Persistent labels, readable values and specific feedback. Fields
+            below are read-only examples.
+          </p>
+        </div>
+        <div class="field-grid">
+          <div>
+            <span class="state-label">Default</span>
+            <div class="field">
+              <label for="sample-default"
+                >Your name <span aria-hidden="true">*</span></label
+              ><input
+                id="sample-default"
+                readonly
+                placeholder="First and last name"
+                aria-describedby="default-caption"
+              />
+            </div>
+            <p class="field-caption" id="default-caption">
+              50px specimen height, translucent fill and an opaque #86919A border. The persistent label stays above the field.
+            </p>
+          </div>
+          <div>
+            <span class="state-label">Error</span>
+            <div class="field">
+              <label for="sample-error"
+                >Email address <span aria-hidden="true">*</span></label
+              ><input
+                id="sample-error"
+                readonly
+                value="alex@"
+                aria-invalid="true"
+                aria-describedby="sample-error-message"
+              />
+              <p class="field-error" id="sample-error-message">
+                Enter a complete email address.
+              </p>
+            </div>
+            <p class="field-caption">
+              The message explains how to resolve the issue.
+            </p>
+          </div>
+          <div>
+            <span class="state-label">Focus · pinned visual state</span>
+            <div class="field">
+              <label for="sample-valid"
+                >Email address <span aria-hidden="true">*</span></label
+              ><input
+                class="state-focus"
+                id="sample-valid"
+                readonly
+                value="alex@example.com"
+                aria-describedby="sample-success-message"
+              />
+              <p class="field-caption" id="sample-success-message">
+                A clear outline remains visible against the frosted surface.
+              </p>
+            </div>
+            <p class="field-caption">
+              Keyboard focus uses a 3px rust outline with a 5px offset; it is shown here as a static visual state.
+            </p>
+          </div>
+        </div>
+        <div class="choice-row">
+          <fieldset disabled>
+            <legend>Interest chooser · selected state</legend>
+            <div class="interest-options">
+              <label
+                ><input
+                  type="radio"
+                  name="sample-interest"
+                  value="solar"
+                /><span>Solar panels</span></label
+              ><label
+                ><input
+                  type="radio"
+                  name="sample-interest"
+                  value="battery"
+                  checked
+                /><span>Solar + battery</span></label
+              ><label
+                ><input
+                  type="radio"
+                  name="sample-interest"
+                  value="advice"
+                /><span>Help me decide</span></label
+              >
+            </div>
+          </fieldset>
+          <div>
+            <span class="spec-label">CONSENT · UNCHECKED BY DEFAULT</span
+            ><label class="consent-label"
+              ><input type="checkbox" disabled /><span
+                >I’m happy to be contacted about my enquiry. Privacy information
+                accompanies the live form.</span
+              ></label
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="reference-section"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <div class="reference-heading">
+          <span>06 /</span>
+          <h2 id="services-title">Useful choices, clearly presented.</h2>
+          <p>Editorial choices and one focused detail panel, presented as frosted surfaces over a quiet wash of light.</p>
+        </div>
+        <div class="services-reference">
+          <div
+            class="solution-list glass-surface"
+            role="tablist"
+            aria-label="Static service tab examples, all disabled"
+          >
+            <button
+              class="is-preview"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="sample-solar-panel"
+              id="sample-solar-tab"
+              disabled
+            >
+              <span class="solution-index">01</span
+              ><span
+                >Home solar<small>Turn daylight into electricity</small></span
+              ><b aria-hidden="true">↗</b></button
+            ><button
+              class="is-preview"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="sample-battery-panel"
+              id="sample-battery-tab"
+              disabled
+            >
+              <span class="solution-index">02</span
+              ><span
+                >Battery storage<small
+                  >Store surplus energy for later</small
+                ></span
+              ><b aria-hidden="true">↗</b></button
+            ><button
+              class="is-preview"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="sample-planning-panel"
+              id="sample-planning-tab"
+              disabled
+            >
+              <span class="solution-index">03</span
+              ><span
+                >System planning<small
+                  >Start with your roof and routine</small
+                ></span
+              ><b aria-hidden="true">↗</b>
+            </button>
+          </div>
+          <div>
+            <article
+              role="tabpanel"
+              id="sample-solar-panel"
+              aria-labelledby="sample-solar-tab"
+            >
+              <div
+                class="product-art"
+                role="img"
+                aria-label="Original conceptual solar panel illustration"
+              >
+                <div class="product-orbit"></div>
+                <div class="solar-panel"><div class="panel-cells"></div></div>
+                <span class="art-note">SUNLIGHT → ELECTRICITY</span
+                ><span class="art-index">01</span>
+              </div>
+              <div class="solution-copy">
+                <div>
+                  <h3>Your own source of possibility.</h3>
+                  <p>
+                    Solar panels turn daylight into electricity. Start with your
+                    roof and your routine.
+                  </p>
+                </div>
+                <button
+                  class="circle-link is-preview"
+                  type="button"
+                  disabled
+                  aria-label="Home solar enquiry action, visual reference"
+                >
+                  <svg aria-hidden="true">
+                    <use href="assets/icons/ui.svg#arrow-up" />
+                  </svg>
+                </button>
+              </div>
+            </article>
+            <article
+              role="tabpanel"
+              id="sample-battery-panel"
+              aria-labelledby="sample-battery-tab"
+              hidden
+            >
+              Battery storage detail is available on the website.
+            </article>
+            <article
+              role="tabpanel"
+              id="sample-planning-panel"
+              aria-labelledby="sample-planning-tab"
+              hidden
+            >
+              System planning detail is available on the website.
+            </article>
+          </div>
+        </div>
+        <p class="reference-note">
+          On the website: arrow keys move between service tabs; selection
+          reveals its associated panel. These reference tabs are intentionally
+          disabled.
+        </p>
+      </section>
+      <section
+        class="reference-section"
+        id="model-controls"
+        aria-labelledby="controls-title"
+      >
+        <div class="reference-heading">
+          <span>07 /</span>
+          <h2 id="controls-title">See what changes.</h2>
+          <p>
+            Controls support exploration without competing with the enquiry
+            journey.
+          </p>
+        </div>
+        <div class="controls-reference">
+          <figure class="model-still glass-surface">
+            <img
+              src="assets/images/solar-house-desktop.webp"
+              alt="Original model of a home with rooftop solar, a terrace and landscaping"
+              width="924"
+              height="448"
+              loading="lazy"
+            />
+            <figcaption>
+              Original procedural architecture · still image reference ·
+              conceptual illustration
+            </figcaption>
+          </figure>
+          <div class="control-stack glass-surface glass-surface-strong">
+            <div class="studio-title"><span class="eyebrow">HOW SOLAR WORKS</span><p>See what changes.</p></div>
+            <div class="time-control">
+              <div class="control-top">
+                <label for="sample-time">Time of day</label
+                ><output for="sample-time">12:00 pm</output>
+              </div>
+              <input
+                id="sample-time"
+                type="range"
+                min="6"
+                max="20"
+                step="0.5"
+                value="12"
+                aria-valuetext="12 noon, static example"
+                disabled
+              />
+              <div class="range-labels">
+                <span>06:00 AM</span><span>08:00 PM</span>
+              </div>
+            </div>
+            <button
+              class="battery-toggle is-preview"
+              type="button"
+              aria-pressed="true"
+              disabled
+            >
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#battery" /></svg
+              ><span
+                >With battery storage<small
+                  >Save some sunshine for later</small
+                ></span
+              ><i class="switch" aria-hidden="true"></i></button
+            ><button
+              class="battery-toggle is-preview"
+              type="button"
+              aria-pressed="false"
+              disabled
+            >
+              <svg aria-hidden="true">
+                <use href="assets/icons/ui.svg#battery" /></svg
+              ><span
+                >Solar without storage<small
+                  >Explore a solar-only home</small
+                ></span
+              ><i class="switch" aria-hidden="true"></i>
+            </button>
+            <div class="reference-tool-row">
+              <button
+                class="is-preview"
+                type="button"
+                disabled
+                aria-label="Reset model view, static example"
+              >
+                <svg aria-hidden="true">
+                  <use href="assets/icons/ui.svg#reset" />
+                </svg></button
+              ><button
+                class="is-preview"
+                type="button"
+                aria-pressed="false"
+                disabled
+              >
+                See the layers
+                <svg aria-hidden="true">
+                  <use href="assets/icons/ui.svg#layers" />
+                </svg></button
+              ><button
+                class="is-preview"
+                type="button"
+                aria-pressed="true"
+                disabled
+              >
+                Layers on
+                <svg aria-hidden="true">
+                  <use href="assets/icons/ui.svg#layers" />
+                </svg>
+              </button>
+            </div>
+            <div class="studio-insight"><p class="studio-explanation">Daylight powers your home. Surplus can be stored or exported.</p></div>
+          </div>
+        </div>
+        <p class="reference-note">
+          On the website: drag or use arrow keys to orbit; Home resets the
+          model. Reduced motion removes the introduction and animated
+          transitions. Offscreen rendering pauses. The live explanation remains visible on desktop, tablet and mobile. This static explanation mirrors the live state; this page loads no WebGL.
+        </p>
+      </section>
+      <section
+        class="reference-section"
+        id="icons"
+        aria-labelledby="icons-title"
+      >
+        <div class="reference-heading">
+          <span>08 /</span>
+          <h2 id="icons-title">Small marks. One visual language.</h2>
+          <p>
+            Original editable SVG symbols, inheriting the current text colour.
+          </p>
+        </div>
+        <ul class="icon-list">
+          <li>
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#arrow-up" /></svg
+            ><code>arrow-up</code>
+          </li>
+          <li>
+            <svg aria-hidden="true"><use href="assets/icons/ui.svg#sun" /></svg
+            ><code>sun</code>
+          </li>
+          <li>
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#battery" /></svg
+            ><code>battery</code>
+          </li>
+          <li>
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#layers" /></svg
+            ><code>layers</code>
+          </li>
+          <li>
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#reset" /></svg
+            ><code>reset</code>
+          </li>
+          <li>
+            <svg aria-hidden="true">
+              <use href="assets/icons/ui.svg#orbit" /></svg
+            ><code>orbit</code>
+          </li>
+        </ul>
+        <p class="reference-note">
+          24 × 24 viewBox · simple strokes · generous space. Decorative icons
+          use <code>aria-hidden</code>; icon-only controls have accessible
+          names.
+        </p>
+      </section>
+      <section
+        class="reference-section"
+        id="spacing"
+        aria-labelledby="spacing-title"
+      >
+        <div class="reference-heading">
+          <span>09 /</span>
+          <h2 id="spacing-title">Space to breathe.</h2>
+          <p>Editorial section spacing and deliberately compact controls.</p>
+        </div>
+        <div class="spacing-layout">
+          <div>
+            <span class="spec-label"
+              >SELECTED SPACING VALUES · BARS SHOWN AT 2×</span
+            >
+            <div class="spacing-step">
+              <code>08</code><span style="width: 16px" aria-hidden="true"></span
+              ><small>8px</small>
+            </div>
+            <div class="spacing-step">
+              <code>12</code><span style="width: 24px" aria-hidden="true"></span
+              ><small>12px</small>
+            </div>
+            <div class="spacing-step">
+              <code>16</code><span style="width: 32px" aria-hidden="true"></span
+              ><small>16px</small>
+            </div>
+            <div class="spacing-step">
+              <code>24</code><span style="width: 48px" aria-hidden="true"></span
+              ><small>24px</small>
+            </div>
+            <div class="spacing-step">
+              <code>32</code><span style="width: 64px" aria-hidden="true"></span
+              ><small>32px</small>
+            </div>
+            <div class="spacing-step">
+              <code>40</code><span style="width: 80px" aria-hidden="true"></span
+              ><small>40px</small>
+            </div>
+            <div class="spacing-step">
+              <code>64</code
+              ><span style="width: 128px" aria-hidden="true"></span
+              ><small>64px</small>
+            </div>
+            <div class="spacing-step">
+              <code>126</code
+              ><span style="width: 252px" aria-hidden="true"></span
+              ><small>126px</small>
+            </div>
+          </div>
+          <div>
+            <span class="spec-label">LAYOUT &amp; COMPONENT GEOMETRY</span>
+            <dl class="layout-spec">
+              <div>
+                <dt>Desktop content width</dt>
+                <dd>1,320px maximum</dd>
+              </div>
+              <div>
+                <dt>Desktop side gutter</dt>
+                <dd>56px</dd>
+              </div>
+              <div>
+                <dt>Primary action height</dt>
+                <dd>58px minimum</dd>
+              </div>
+              <div>
+                <dt>Nested action corner radius</dt>
+                <dd>16px</dd>
+              </div>
+              <div>
+                <dt>Field corner radius</dt>
+                <dd>12px</dd>
+              </div>
+              <div><dt>Primary frosted surface radius</dt><dd>24px desktop · 20px mobile</dd></div>
+              <div><dt>Supporting mobile surface radius</dt><dd>18px</dd></div>
+              <div><dt>Mobile enquiry panel radius</dt><dd>22px</dd></div>
+              <div><dt>Shared backdrop blur</dt><dd>28px desktop · 22px mobile</dd></div>
+              <div><dt>Shared backdrop saturation</dt><dd>135%</dd></div>
+              <div><dt>Header frost</dt><dd>White 58% · blur 28px · saturation 150%</dd></div>
+              <div><dt>Header corner radius</dt><dd>18px desktop · 16px mobile</dd></div>
+              <div><dt>Default field border</dt><dd>#86919A</dd></div>
+              <div>
+                <dt>Focus outline</dt>
+                <dd>3px · 5px offset</dd>
+              </div>
+              <div>
+                <dt>Section padding, desktop</dt>
+                <dd>126px base · About 88px · Stories 75px</dd>
+              </div>
+              <div>
+                <dt>Responsive layouts</dt>
+                <dd>Tablet · mobile · compact</dd>
+              </div>
+            </dl>
+            <p class="reference-note">
+              Load <code>styles.css</code>, then <code>glass.css</code>, then <code>refinements.css</code>. This page reuses the shared glass classes and V4 refinements. Scoped rules provide the coloured specimen backdrops and reference-page layout.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="shell reference-footer">
+      <span>The Solar Co · V4 glass component reference · Static state examples</span
+      ><a href="index.html">Return to the complete website ↗</a>
+    </footer>
+  </body>
+</html>

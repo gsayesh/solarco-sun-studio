@@ -1,0 +1,11 @@
+{
+  "name": "solar-co-sun-studio",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check app.js && node --check solar-scene.js && node --check server.mjs"
+  },
+  "description": "An original light solar website with a procedural WebGL home. No build step or dependencies to install."
+}
